@@ -1,19 +1,28 @@
 const container = document.querySelector('#container');
 
-for(let v = 0; v < 16; v++){
-    const v = document.createElement('div');
+const size = document.querySelector('#size');
+size.addEventListener('click', () => {
+    let sizeRequest = parseInt(prompt("Input size."));
 
-    for(let h = 0; h < 16; h++){
-        const h = document.createElement('div');
-        h.style.borderStyle = 'solid';
-        h.style.height = '15px';
-        h.style.width = '15px';
-
-        h.addEventListener('mouseover', () => {
-            h.style.backgroundColor = 'black';
-        });
-    
-        v.appendChild(h);
+    if (sizeRequest < 30) {
+        for(let v = 0; v < sizeRequest; v++){
+            const v = document.createElement('div');
+        
+            for(let h = 0; h < sizeRequest; h++){
+                const h = document.createElement('div');
+                h.style.borderStyle = 'solid';
+                h.style.height = '10px';
+                h.style.width = '10px';
+        
+                h.addEventListener('mouseover', () => {
+                    h.style.backgroundColor = 'black';
+                });
+            
+                v.appendChild(h);
+            }
+            container.appendChild(v);
+        }        
+    } else {
+        console.log("Too big!");
     }
-    container.appendChild(v);
-}
+});
