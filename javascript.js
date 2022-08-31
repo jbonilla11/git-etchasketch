@@ -8,6 +8,10 @@ for(let v = 0; v < 16; v++){
         h.style.borderStyle = 'solid';
         h.style.height = '15px';
         h.style.width = '15px';
+
+        h.addEventListener('mouseover', () => {
+            h.style.backgroundColor = 'black';
+        });
     
         v.appendChild(h);
     }
